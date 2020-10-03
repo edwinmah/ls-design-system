@@ -1,26 +1,16 @@
-import React, {
-  Fragment
-} from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {
-  darken,
-  rgba
-} from 'polished';
-import {
-  color,
-  typography
-} from './shared/styles';
-import {
-  easing
-} from './shared/animation';
+import {darken, rgba} from 'polished';
+import {color, typography} from './shared/styles';
+import {easing} from './shared/animation';
 
-const Text = styled.span `
+const Text = styled.span`
   display: inline-block;
   vertical-align: top;
 `;
 
-const Loading = styled.span `
+const Loading = styled.span`
   position: absolute;
   top: 50%;
   left: 0;
@@ -42,7 +32,7 @@ const SIZES = {
   MEDIUM: 'medium',
 };
 
-const StyledButton = styled.button `
+const StyledButton = styled.button`
   border: 0;
   border-radius: 3em;
   cursor: pointer;
@@ -53,7 +43,7 @@ const StyledButton = styled.button `
   text-align: center;
   text-decoration: none;
   transition: all 150ms ease-out;
-  transform: translate3d(0,0,0);
+  transform: translate3d(0, 0, 0);
   vertical-align: top;
   white-space: nowrap;
   user-select: none;
@@ -61,8 +51,8 @@ const StyledButton = styled.button `
   margin: 0;
   background: transparent;
 
-
-  font-size: ${props => (props.size === SIZES.SMALL ? typography.size.s1 : typography.size.s2)}px;
+  font-size: ${props =>
+    props.size === SIZES.SMALL ? typography.size.s1 : typography.size.s2}px;
   font-weight: ${typography.weight.extrabold};
   line-height: 1;
 
@@ -88,7 +78,7 @@ const StyledButton = styled.button `
     `}
 
   ${Text} {
-    transform: scale3d(1,1,1) translate3d(0,0,0);
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
     transition: transform 700ms ${easing.rubber};
     opacity: 1;
   }
@@ -167,7 +157,8 @@ const StyledButton = styled.button `
       background: ${color.primary};
       color: ${color.lightest};
 
-      ${!props.isLoading &&
+      ${
+        !props.isLoading &&
         `
           &:hover {
             background: ${darken(0.05, color.primary)};
@@ -181,7 +172,8 @@ const StyledButton = styled.button `
           &:focus:hover {
             box-shadow: ${rgba(color.primary, 0.2)} 0 8px 18px 0px;
           }
-        `}
+        `
+      }
     `}
 
   ${props =>
@@ -190,7 +182,8 @@ const StyledButton = styled.button `
       background: ${color.secondary};
       color: ${color.lightest};
 
-      ${!props.isLoading &&
+      ${
+        !props.isLoading &&
         `
           &:hover {
             background: ${darken(0.05, color.secondary)};
@@ -204,7 +197,8 @@ const StyledButton = styled.button `
           &:focus:hover {
             box-shadow: ${rgba(color.secondary, 0.2)} 0 8px 18px 0px;
           }
-        `}
+        `
+      }
     `}
 
   ${props =>
@@ -213,7 +207,8 @@ const StyledButton = styled.button `
       background: ${color.tertiary};
       color: ${color.darkest};
 
-      ${!props.isLoading &&
+      ${
+        !props.isLoading &&
         `
           &:hover {
             background: ${darken(0.05, color.tertiary)};
@@ -227,7 +222,8 @@ const StyledButton = styled.button `
           &:focus:hover {
             box-shadow: ${rgba(color.tertiary, 0.2)} 0 8px 18px 0px;
           }
-        `}
+        `
+      }
     `}
 
   ${props =>
@@ -237,7 +233,8 @@ const StyledButton = styled.button `
       color: ${color.dark};
       background: transparent;
 
-      ${!props.isLoading &&
+      ${
+        !props.isLoading &&
         `
           &:hover {
             box-shadow: ${color.mediumdark} 0 0 0 1px inset;
@@ -260,12 +257,13 @@ const StyledButton = styled.button `
           0.2
         )} 0 8px 18px 0px;
           }
-        `};
+        `
+      };
     `};
 
-    ${props =>
-      props.appearance === APPEARANCES.PRIMARY_OUTLINE &&
-      `
+  ${props =>
+    props.appearance === APPEARANCES.PRIMARY_OUTLINE &&
+    `
         box-shadow: ${color.primary} 0 0 0 1px inset;
         color: ${color.primary};
 
@@ -280,16 +278,22 @@ const StyledButton = styled.button `
           color: ${color.lightest};
         }
         &:focus {
-          box-shadow: ${color.primary} 0 0 0 1px inset, ${rgba(color.primary, 0.4)} 0 1px 9px 2px;
+          box-shadow: ${color.primary} 0 0 0 1px inset, ${rgba(
+      color.primary,
+      0.4
+    )} 0 1px 9px 2px;
         }
         &:focus:hover {
-          box-shadow: ${color.primary} 0 0 0 1px inset, ${rgba(color.primary, 0.2)} 0 8px 18px 0px;
+          box-shadow: ${color.primary} 0 0 0 1px inset, ${rgba(
+      color.primary,
+      0.2
+    )} 0 8px 18px 0px;
         }
       `};
 
-    ${props =>
-      props.appearance === APPEARANCES.SECONDARY_OUTLINE &&
-      `
+  ${props =>
+    props.appearance === APPEARANCES.SECONDARY_OUTLINE &&
+    `
         box-shadow: ${color.secondary} 0 0 0 1px inset;
         color: ${color.secondary};
 
@@ -312,9 +316,6 @@ const StyledButton = styled.button `
             ${rgba(color.secondary, 0.2)} 0 8px 18px 0px;
         }
       `};
-
-  border: 10px solid red;
-  font-size: 20px;
 `;
 
 const ButtonLink = StyledButton.withComponent('a');
@@ -322,17 +323,11 @@ const ButtonLink = StyledButton.withComponent('a');
 const applyStyle = ButtonWrapper => {
   return (
     ButtonWrapper &&
-    StyledButton.withComponent(({
-      containsIcon,
-      isLoading,
-      isUnclickable,
-      ...rest
-    }) => ( <
-      ButtonWrapper {
-        ...rest
-      }
-      />
-    ))
+    StyledButton.withComponent(
+      ({containsIcon, isLoading, isUnclickable, ...rest}) => (
+        <ButtonWrapper {...rest} />
+      )
+    )
   );
 };
 
@@ -345,75 +340,64 @@ export function Button({
   ButtonWrapper,
   ...props
 }) {
-  const buttonInner = ( <
-    Fragment >
-    <
-    Text > {
-      children
-    } < /Text> {
-      isLoading && < Loading > {
-          loadingText || 'Loading...'
-        } < /Loading>} <
-        /Fragment>
-    );
+  const buttonInner = (
+    <Fragment>
+      <Text>{children}</Text>
+      {isLoading && <Loading> {loadingText || 'Loading...'}</Loading>}
+    </Fragment>
+  );
 
-    const StyledButtonWrapper = React.useMemo(() => applyStyle(ButtonWrapper), [ButtonWrapper]);
+  const StyledButtonWrapper = React.useMemo(() => applyStyle(ButtonWrapper), [
+    ButtonWrapper,
+  ]);
 
-    let SelectedButton = StyledButton;
-    if (ButtonWrapper) {
-      SelectedButton = StyledButtonWrapper;
-    } else if (isLink) {
-      SelectedButton = ButtonLink;
-    }
-
-    return ( <
-      SelectedButton isLoading = {
-        isLoading
-      }
-      disabled = {
-        isDisabled
-      } {
-        ...props
-      } > {
-        buttonInner
-      } <
-      /SelectedButton>
-    );
+  let SelectedButton = StyledButton;
+  if (ButtonWrapper) {
+    SelectedButton = StyledButtonWrapper;
+  } else if (isLink) {
+    SelectedButton = ButtonLink;
   }
 
-  Button.propTypes = {
-    isLoading: PropTypes.bool,
-    /**
+  return (
+    <SelectedButton isLoading={isLoading} disabled={isDisabled} {...props}>
+      {buttonInner}
+    </SelectedButton>
+  );
+}
+
+Button.propTypes = {
+  isLoading: PropTypes.bool,
+  /**
      When a button is in the loading state you can supply custom text
     */
-    loadingText: PropTypes.node,
-    /**
+  loadingText: PropTypes.node,
+  /**
      Buttons that have hrefs should use <a> instead of <button>
     */
-    isLink: PropTypes.bool,
-    children: PropTypes.node.isRequired,
-    appearance: PropTypes.oneOf(Object.values(APPEARANCES)),
-    isDisabled: PropTypes.bool,
-    /**
+  isLink: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+  appearance: PropTypes.oneOf(Object.values(APPEARANCES)),
+  isDisabled: PropTypes.bool,
+  /**
      Prevents users from clicking on a button multiple times (for things like payment forms)
     */
-    isUnclickable: PropTypes.bool,
-    /**
+  isUnclickable: PropTypes.bool,
+  /**
      Buttons with icons by themselves have a circular shape
     */
-    containsIcon: PropTypes.bool,
-    size: PropTypes.oneOf(Object.values(SIZES)),
-    ButtonWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-  };
+  containsIcon: PropTypes.bool,
+  size: PropTypes.oneOf(Object.values(SIZES)),
+  ButtonWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+};
 
-  Button.defaultProps = {
-    isLoading: false,
-    loadingText: null,
-    isLink: false,
-    appearance: APPEARANCES.TERTIARY,
-    isDisabled: false,
-    isUnclickable: false,
-    containsIcon: false,
-    size: SIZES.MEDIUM,
-    ButtonWrapper: undefined,
-  };
+Button.defaultProps = {
+  isLoading: false,
+  loadingText: null,
+  isLink: false,
+  appearance: APPEARANCES.TERTIARY,
+  isDisabled: false,
+  isUnclickable: false,
+  containsIcon: false,
+  size: SIZES.MEDIUM,
+  ButtonWrapper: undefined,
+};
