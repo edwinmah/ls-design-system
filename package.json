@@ -1,6 +1,11 @@
 {
   "name": "ls-design-system",
+  "description": "Learn Storybook design system",
   "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": "git@github.com:edwinmah/ls-design-system.git",
+  "author": "Edwin Mah <edwinmah@users.noreply.github.com>",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -34,7 +39,6 @@
           "absoluteRuntime": false
         }
       ]
-
     ]
   },
   "browserslist": {
