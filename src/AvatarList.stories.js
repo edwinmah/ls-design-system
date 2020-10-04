@@ -45,8 +45,8 @@ Ellipsized.args = {
       avatarUrl: 'https://avatars0.githubusercontent.com/u/81672',
     },
     {
-      id: '4',
-      name: 'Tim Hingston',
+      id: "4",
+      name: "Tim Hingston",
       avatarUrl: 'https://avatars3.githubusercontent.com/u/1831709',
     },
   ],
